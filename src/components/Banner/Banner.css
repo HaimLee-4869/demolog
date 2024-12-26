@@ -1,0 +1,147 @@
+  /* 배너 */
+  .banner {
+    top:3px;        /* 헤더 아래 3px 공간 */
+    height: 60vh;       /* 화면 높이의 60% */
+    width: 100vw;       /* 화면 너비 전체 */
+    max-width: 100%;        /* 최대 너비를 100%로 제한 */
+    background-size: cover;     /* 배경 이미지를 컨테이너에 맞춤 */
+    background-position: center;        /* 배경 이미지를 가운데 정렬 */
+    color: white;       /* 텍스트를 흰색으로 설정 */
+    display: flex;       /* 자식 요소를 플렉스 박스로 정렬 */
+    align-items: flex-end;      /* 자식 요소를 아래쪽에 정렬 */
+    margin-top: 70px; /* 배너 상단에 여백 추가 */
+    position: relative;         /* 배너의 기준을 설정 */
+    margin-bottom: 0; /* 하단 여백 제거 */
+    z-index: 10; /* 헤더보다 뒤로 배치 */
+    padding-top: 60px; /* 헤더 높이만큼 상단 패딩 추가 */
+  }
+  
+  .banner-content {
+    padding: 30px; /* 내부 여백 30px */
+    background: linear-gradient(
+      180deg,
+      transparent 0%, /* 투명에서 시작 */
+      rgba(0, 0, 0, 0.2) 20%, /* 20%에서 약간 어두워짐 */
+      rgba(0, 0, 0, 0.4) 40%, /* 점점 어두워짐 */
+      rgba(0, 0, 0, 0.6) 60%, /* 더 어두워짐 */
+      rgba(0, 0, 0, 0.8) 80%, /* 거의 검은색 */
+      rgba(0, 0, 0, 0.95) 100% /* 완전히 어두운 색 */
+    );
+    width: 100%; /* 배너 콘텐츠가 배너 전체 너비를 차지 */
+    box-sizing: border-box; /* 패딩 포함 크기 계산 */
+    display: flex; /* 플렉스 레이아웃 사용 */
+    flex-direction: column; /* 자식 요소를 세로로 배치 */
+    align-items: flex-start; /* 자식 요소를 왼쪽 정렬 */
+    /*position: relative;*/ /* 내부에서 추가 요소 배치 가능 */
+    /*z-index: 10;*/ /* 다른 요소와의 쌓임 순서 설정 */
+}
+
+  .banner h1 {
+    font-size: 3rem;        /* 큰 제목 글씨 크기 */
+    margin-bottom: 0.5rem;      /* 제목 아래 여백 */
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.7); /* 텍스트에 그림자 추가 */
+    color:white;             /* 흰색 텍스트 */
+    font-weight: 700; /* 굵은 글씨 */
+    letter-spacing: 1px; /* 글자 간격 */
+  }
+  
+  .banner p {
+    font-size: 1rem;        /* 설명 글씨 크기 */
+    max-width: 700px;       /* 최대 너비 제한 */
+    margin-bottom: 1.5rem;        /* 아래 여백 */
+    text-align: left;       /* 왼쪽 정렬 */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* 텍스트에 그림자 추가 */
+    color:white;             /* 흰색 텍스트 */
+    font-weight: 400; /* 보통 글씨 굵기 */
+  }
+  
+  .play-btn, .info-btn {
+    padding: 10px 20px;     /* 버튼의 여백 */
+    margin-right: 10px;     /* 오른쪽 여백 */
+    border: none;       /* 테두리 없음 */
+    border-radius: 5px;     /* 버튼 모서리를 둥글게 */
+    font-size: 1rem;        /* 버튼 텍스트 크기 */
+    cursor: pointer;        /* 커서를 포인터로 변경 */
+    /* 텍스트 굵기, 그림자 설정*/
+  }
+  
+  .play-btn {
+    background-color: white;      
+    color: rgb(255, 44, 146);      
+  }
+  
+  .info-btn {
+    background-color: rgba(109, 109, 110, 0.7);
+    color: rgb(0, 0, 0);       /* 텍스트 색 */
+  }
+  
+  .title-btn {
+    margin-top: 5px;        /* 위쪽 여백 */
+    width: 150px;       /* 버튼 너비 */
+  }
+  
+  .title-btn:hover {
+    transform: scale(1.05); /* 살짝 확대 효과 */
+  }
+  
+  
+  /* 반응형 */
+  @media screen and (max-width: 1200px) {
+    .banner {
+        height: 120vh; 
+    }
+    .banner h1 {
+        font-size: 2.5rem;
+    }
+    .banner p {
+        font-size: 0.9rem;
+    }
+    .play-btn, .info-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    .title-btn {
+        width: 120px;
+        font-size: 0.85rem;
+    }
+  }
+  
+  @media screen and (max-width: 750px) {
+    .banner {
+        height: 50vh;
+    }
+    .banner h1 {
+        font-size: 2rem;
+    }
+    .banner p {
+        font-size: 0.8rem;
+    }
+    .play-btn, .info-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    .title-btn {
+        width: 60px;
+        font-size: 0.75rem;
+    }
+  }
+  
+  @media screen and (max-width: 550px) {
+    .banner {
+        height: 70vh;
+    }
+    .banner h1 {
+        font-size: 1.5rem;
+    }
+    .banner p {
+        font-size: 0.7rem;
+    }
+    .play-btn, .info-btn {
+        padding: 5px 10px;
+        font-size: 0.7rem;
+    }
+    .title-btn {
+        width: 80px;
+        font-size: 0.7rem;
+    }
+  }

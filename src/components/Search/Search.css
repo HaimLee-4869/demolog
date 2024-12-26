@@ -1,0 +1,227 @@
+/* 검색 컨테이너: 검색 바와 드롭다운 메뉴를 포함한 상위 컨테이너 */
+.movie-search-container {
+  width: 100%; /* 전체 화면 너비 */
+  max-width: 1200px; /* 최대 너비 제한 */
+  /* margin: 80px auto 0; */ /* 중앙 정렬 및 상단 여백 (주석 처리됨) */
+  padding: 30px; /* 내부 여백 */
+}
+
+/* 드롭다운 메뉴 컨테이너 */
+.dropdown-container {
+  display: flex; /* 가로 방향 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  gap: 15px; /* 드롭다운 간 간격 */
+  margin-bottom: 20px; /* 하단 여백 */
+  /*width: 100%*/ /* (주석 처리됨) */
+}
+
+/* 검색 바 컨테이너 */
+.search-bar {
+  display: flex; /* 검색 입력창과 버튼을 가로로 배치 */
+  align-items: center; /* 세로 중앙 정렬 */
+  gap: 0; /* 요소 간 간격 제거 */
+}
+
+/* 검색 입력창 스타일 */
+.search-input {
+  width: 100%; /* 가능한 전체 너비 */
+  padding: 10px; /* 텍스트와 테두리 사이 여백 */
+  font-size: 16px; /* 텍스트 크기 */
+  border-radius: 4px 0 0 4px; /* 왼쪽 위/아래 모서리 둥글게 */
+  border: 1px solid #ccc; /* 회색 테두리 */
+  box-sizing: border-box; /* 패딩과 테두리 포함한 너비 계산 */
+  color: black; /* 텍스트 색상 */
+  height: 40px; /* 높이 고정 (버튼과 일치) */
+}
+
+/* 검색 입력창 플레이스홀더 텍스트 스타일 */
+.search-input::placeholder {
+  color: #c67575; /* 플레이스홀더 색상 (연한 빨간색) */
+}
+
+/* 검색 버튼 스타일 */
+.search-button {
+  background-color: #745f5f; /* 버튼 배경색 (회색) */
+  color: rgb(153, 58, 58); /* 텍스트 색상 (붉은색) */
+  border: none; /* 테두리 제거 */
+  padding: 4px 8px; /* 내부 여백 */
+  cursor: pointer; /* 클릭 가능한 커서 */
+  font-size: 16px; /* 텍스트 크기 */
+  border-radius: 0 4px 4px 0; /* 오른쪽 위/아래 모서리 둥글게 */
+  height: 40px; /* 높이 고정 (입력창과 동일) */
+  width: 60px; /* 너비 고정 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+/* 검색 기록 컨테이너 */
+.search-history {
+  margin-top: 20px; /* 상단 여백 */
+}
+
+/* 검색 기록 제목 스타일 */
+.search-history h4 {
+  font-size: 16px; /* 텍스트 크기 */
+  color: white; /* 텍스트 색상 */
+  margin-bottom: 10px; /* 하단 여백 */
+}
+
+/* 검색 기록 리스트 스타일 */
+.search-history ul {
+  list-style: none; /* 리스트 스타일 제거 */
+  padding: 0; /* 내부 여백 제거 */
+  display: flex; /* 가로 배열 */
+  gap: 10px; /* 항목 간 간격 */
+  flex-wrap: wrap; /* 공간 부족 시 줄바꿈 */
+}
+
+/* 검색 기록 항목 스타일 */
+.search-history li {
+  color: #ccc; /* 텍스트 색상 (연한 회색) */
+  cursor: pointer; /* 클릭 가능한 커서 */
+  padding: 5px 10px; /* 내부 여백 */
+  background-color: #333; /* 배경색 (어두운 회색) */
+  border-radius: 4px; /* 모서리 둥글게 */
+  display: inline-flex; /* 가로 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+}
+
+/* 검색 기록 항목 호버 효과 */
+.search-history li:hover span {
+  color: white; /* 텍스트 색상을 흰색으로 변경 */
+}
+
+/* 검색 기록 삭제 버튼 스타일 */
+.remove-btn {
+  background: none; /* 배경 제거 */
+  color: red; /* 텍스트 색상 (빨간색) */
+  border: none; /* 테두리 제거 */
+  font-size: 12px; /* 텍스트 크기 */
+  cursor: pointer; /* 클릭 가능한 커서 */
+  margin-left: 5px; /* 왼쪽 여백 */
+}
+
+/* 사용자 정의 드롭다운 컨테이너 */
+.custom-select {
+  width: 100%; /* 전체 너비 */
+  position: relative; /* 내부 요소 배치 용이 */
+  display: inline-block; /* 인라인 블록 요소 */
+}
+
+/* 선택된 드롭다운 항목 스타일 */
+.select-selected {
+  background-color: rgb(255, 151, 151); /* 배경색 (연한 빨간색) */
+  color: white; /* 텍스트 색상 */
+  padding: 10px; /* 내부 여백 */
+  border: 1px solid #000000; /* 검은색 테두리 */
+  font-size: 16px; /* 텍스트 크기 */
+  cursor: pointer; /* 클릭 가능한 커서 */
+}
+
+/* 드롭다운 화살표 스타일 */
+.select-selected:after {
+  content: "\25BC"; /* 아래 방향 화살표 */
+  position: absolute; /* 내부 위치 고정 */
+  right: 10px; /* 오른쪽 여백 */
+  top: 14px; /* 위쪽 여백 */
+}
+
+/* 드롭다운 활성화 시 화살표 변경 */
+.select-arrow-active:after {
+  content: "\25B2"; /* 위 방향 화살표 */
+}
+
+/* 드롭다운 항목 컨테이너 */
+.select-items {
+  display: block; /* 항목 표시 */
+  position: absolute; /* 내부 위치 고정 */
+  background-color: #ffa7a7; /* 배경색 (연한 빨간색) */
+  border: 1px solid #e43737; /* 빨간색 테두리 */
+  z-index: 99; /* 우선순위 */
+  top: 100%; /* 부모 요소 아래에 배치 */
+  left: 0; /* 왼쪽 정렬 */
+  right: 0; /* 오른쪽 정렬 */
+}
+
+/* 드롭다운 항목 스타일 */
+.select-items div {
+  color: white; /* 텍스트 색상 */
+  padding: 10px; /* 내부 여백 */
+  cursor: pointer; /* 클릭 가능한 커서 */
+}
+
+/* 드롭다운 항목 호버 효과 */
+.select-items div:hover {
+  background-color: #ff3737; /* 배경색 변경 (빨간색) */
+}
+
+/* 드롭다운 초기화 버튼 스타일 */
+.clear-options {
+  min-width: 120px; /* 최소 너비 */
+  padding: 10px; /* 내부 여백 */
+  background-color: black; /* 배경색 (검은색) */
+  color: white; /* 텍스트 색상 */
+  border: 1px solid #000000; /* 검은색 테두리 */
+  font-size: 16px; /* 텍스트 크기 */
+  cursor: pointer; /* 클릭 가능한 커서 */
+  border-radius: 4px; /* 모서리 둥글게 */
+  transition: background-color 0.3s; /* 배경색 전환 효과 */
+}
+
+/* 초기화 버튼 호버 효과 */
+.clear-options:hover {
+  background-color: #333; /* 배경색 변경 (회색) */
+}
+
+/* 영화 목록 그리드 컨테이너 */
+.movie-list {
+  display: grid; /* 그리드 레이아웃 */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 열 크기 조정 */
+  gap: 20px; /* 그리드 간 간격 */
+}
+
+/* 영화 카드 스타일 */
+.movie-card {
+  background-color: #222; /* 배경색 (어두운 회색) */
+  border-radius: 8px; /* 모서리 둥글게 */
+  padding: 5px; /* 내부 여백 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+/* 영화 포스터 스타일 */
+.movie-poster {
+  width: 100%; /* 전체 너비 */
+  height: auto; /* 자동 높이 */
+  object-fit: contain; /* 원본 비율 유지 */
+  border-radius: 4px; /* 모서리 둥글게 */
+}
+
+/* 영화 정보 텍스트 스타일 */
+.movie-info {
+  margin-top: 10px; /* 상단 여백 */
+  color: white; /* 텍스트 색상 */
+}
+
+/* 에러 메시지 스타일 */
+.error-message {
+  color: red; /* 텍스트 색상 (빨간색) */
+  text-align: center; /* 중앙 정렬 */
+  margin-top: 20px; /* 상단 여백 */
+}
+
+/* 로딩 메시지 스타일 */
+.loading-message {
+  font-size: 150px; /* 텍스트 크기 */
+  text-align: center; /* 중앙 정렬 */
+  color: gray; /* 텍스트 색상 (회색) */
+}
+
+/* 검색 결과 숨기기 */
+.content-search .movie-grid {
+  display: none; /* 숨기기 */
+}
+
+/* 뷰 전환 버튼 숨기기 */
+.view-switch {
+  display: none; /* 숨기기 */
+}

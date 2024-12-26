@@ -1,0 +1,127 @@
+:root {
+  /* 색상 관련 변수 설정 */
+  --background-color: #151515; /* 기본 배경색 */
+  --text-color: #f1f1f1; /* 기본 텍스트 색상 */
+  --header-background: rgba(0, 0, 0, 0.85); /* 헤더 배경색 (약간 투명) */
+  --header-text-color: #ffffff; /* 헤더 텍스트 색상 */
+  --link-color: #636bff; /* 링크 기본 색상 */
+  --button-background: #E50B15; /* 버튼 배경색 */
+  --button-text-color: #ffffff; /* 버튼 텍스트 색상 */
+}
+
+body {
+  margin: 0; /* 기본 마진 제거 */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* 기본 폰트 설정 */
+  color: var(--text-color); /* 텍스트 색상 */
+  overflow-x: hidden; /* 가로 스크롤 방지 */
+  background-color: var(--background-color); /* 배경색 설정 */
+  font-size: 16px; /* 기본 폰트 크기 */
+}
+
+a {
+  font-weight: 500; /* 링크의 기본 글꼴 두께 */
+  color: var(--link-color); /* 링크 색상 */
+  text-decoration: none; /* 밑줄 제거 */
+  font-size: 1rem; /* 기본 폰트 크기 */
+}
+
+a:hover {
+  color: var(--link-color); /* 호버 시 링크 색상 유지 */
+  opacity: 0.85; /* 투명도를 약간 낮춰 호버 효과 제공 */
+}
+
+button {
+  font-size: 1rem; /* 기본 버튼 글꼴 크기 */
+  cursor: pointer; /* 마우스 포인터 변경 */
+  transition: background-color 0.25s ease, transform 0.25s ease; /* 배경색 및 변환 효과 */
+}
+
+button:disabled {
+  opacity: 0.5; /* 비활성화 상태의 버튼 투명도 */
+  cursor: not-allowed; /* 비활성화된 버튼의 커서 스타일 */
+}
+
+@media (max-width: 768px) {
+  /* 태블릿 및 중간 화면 크기 */
+  body {
+    font-size: 15px; /* 폰트 크기 조정 */
+  }
+
+  a {
+    font-size: 0.9rem; /* 링크 폰트 크기 축소 */
+  }
+
+  button {
+    font-size: 0.9rem; /* 버튼 폰트 크기 축소 */
+  }
+}
+
+@media (max-width: 480px) {
+  /* 작은 화면 (모바일) */
+  body {
+    font-size: 13.5px; /* 폰트 크기 조정 */
+  }
+
+  a {
+    font-size: 0.8rem; /* 링크 폰트 크기 축소 */
+  }
+
+  button {
+    font-size: 0.8rem; /* 버튼 폰트 크기 축소 */
+  }
+}
+
+/* 화면 회전 최적화 */
+@media screen and (orientation: landscape) {
+  :root {
+    --content-padding: 5vh 6vw; /* 콘텐츠 여백 (가로 모드) */
+    --header-height: 58px; /* 헤더 높이 조정 */
+  }
+}
+
+@media screen and (orientation: portrait) {
+  :root {
+    --content-padding: 3vh 4vw; /* 콘텐츠 여백 (세로 모드) */
+    --header-height: 52px; /* 헤더 높이 조정 */
+  }
+}
+
+/* 태블릿/모바일 가로 모드 */
+@media (max-height: 500px) and (orientation: landscape) {
+  body {
+    font-size: 14.5px; /* 폰트 크기 조정 */
+  }
+
+  .content-wrapper {
+    padding: var(--content-padding); /* 가로 모드 여백 적용 */
+  }
+}
+
+/* 이미지 반응형 설정 */
+img {
+  max-width: 100%; /* 가로 크기를 부모 요소에 맞춤 */
+  height: auto; /* 높이를 비율에 맞춰 자동 조정 */
+  display: block; /* 이미지가 인라인 요소로 표시되지 않도록 설정 */
+}
+
+/* 페이지 전환 애니메이션 */
+.page-transition-enter {
+  opacity: 0; /* 초기 투명도 */
+  transform: translateY(25px); /* 아래쪽에서 시작 */
+}
+
+.page-transition-enter-active {
+  opacity: 1; /* 투명도 증가 */
+  transform: translateY(0); /* 원래 위치로 이동 */
+  transition: opacity 320ms, transform 320ms; /* 애니메이션 효과 (조금 더 느리게 설정) */
+}
+
+.page-transition-exit {
+  opacity: 1; /* 초기 상태 */
+}
+
+.page-transition-exit-active {
+  opacity: 0; /* 투명도 감소 */
+  transform: translateY(-25px); /* 위쪽으로 이동 */
+  transition: opacity 320ms, transform 320ms; /* 애니메이션 효과 */
+}

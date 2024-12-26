@@ -1,0 +1,128 @@
+.movie-grid {
+  padding: 20px;
+  width: 100%;
+  height: calc(100vh - 200px);
+  margin-bottom: 40px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 80px;
+  overflow-y: auto;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.load-more {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #333;
+  color: white;
+  border: none; 
+  border-radius: 4px;
+}
+
+.loading-spinner,
+.end-message {
+  text-align: center;
+  font-size: 1.2em;
+  color: #888;
+}
+
+.movie-rank-container {
+  position: relative;
+  text-align: center;
+}
+
+.movie-rank {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 2em;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: bold;
+  z-index: 1;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+}
+
+.movie-card {
+  width: 100%;
+  max-width: 250px;
+  transition: transform 0.3s;
+  position: relative;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-card img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.movie-title {
+  margin-top: 5px;
+  text-align: center;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 5px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: auto;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .movie-grid {
+    height: calc(90svh - 200px);
+  }
+
+  .movie-card {
+    width: 150px;
+  }
+
+  .movie-title {
+    font-size: 12px;
+  }
+
+  .pagination button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}

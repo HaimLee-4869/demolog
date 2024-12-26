@@ -1,0 +1,78 @@
+/* 위시리스트 아이콘 스타일 */
+.wishlist-indicator {
+  position: absolute; /* 부모 요소 기준 고정 위치 */
+  top: 10px; /* 위쪽에서 10px 떨어짐 */
+  right: 10px; /* 오른쪽에서 10px 떨어짐 */
+  font-size: 20px; /* 아이콘 크기 */
+  background-color: rgba(229, 9, 20, 0.7); /* 빨간색 반투명 배경 */
+  color: white; /* 아이콘 텍스트 색상 */
+  padding: 5px; /* 내부 여백 */
+  border-radius: 50%; /* 원형 모양 */
+  cursor: pointer; /* 마우스 오버 시 클릭 가능한 커서 표시 */
+}
+
+/* 영화 카드 그리드 컨테이너 */
+.movie-grid {
+  display: flex; /* 플렉스 박스 레이아웃 */
+  flex-wrap: wrap; /* 화면에 맞춰 카드 줄바꿈 */
+  gap: 20px; /* 카드 간 간격 */
+  justify-content: center; /* 카드 중앙 정렬 */
+  padding: 20px; /* 내부 여백 */
+  background-color: #333; /* 배경색 (진회색) */
+}
+
+/* 영화 카드 스타일 */
+.movie-card {
+  width: 320px; /* 고정된 카드 너비 */
+  height: 450px; /* 고정된 카드 높이 */
+  display: flex; /* 플렉스 박스를 사용해 내부 요소 정렬 */
+  flex-direction: column; /* 내부 요소를 세로 방향으로 정렬 */
+  align-items: center; /* 내부 요소를 중앙 정렬 */
+  position: relative; /* 내부 아이콘(위시리스트 등)의 위치 기준 */
+  border-radius: 8px; /* 둥근 모서리 */
+  overflow: hidden; /* 카드 영역을 벗어나는 요소 숨김 */
+  background-color: #222; /* 카드 배경색 (어두운 회색) */
+  transition: transform 0.3s ease; /* 부드러운 확대 효과 */
+  cursor: pointer; /* 마우스 오버 시 클릭 가능한 커서 표시 */
+}
+
+/* 영화 카드 호버 효과 */
+.movie-card:hover {
+  transform: scale(1.05); /* 마우스 오버 시 카드 확대 */
+}
+
+/* 영화 카드 이미지 스타일 */
+.movie-card img {
+  width: 100%; /* 카드 너비에 맞춤 */
+  height: 100%; /* 카드 높이에 맞춤 */
+  object-fit: contain; /* 원본 비율 유지, 카드 내부에 맞춤 */
+  background-color: #333; /* 이미지가 작을 경우 배경색 표시 */
+}
+
+/* 영화 제목 스타일 */
+.movie-title {
+  margin-top: 10px; /* 상단 여백 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  font-size: 18px; /* 제목 크기 */
+  font-weight: bold; /* 텍스트 굵게 */
+  color: white; /* 텍스트 색상 */
+  text-overflow: ellipsis; /* 긴 제목은 줄임표(...)로 표시 */
+  overflow: hidden; /* 넘치는 텍스트 숨김 */
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+}
+
+/* 위시리스트 비어 있을 때 메시지 */
+.empty-wishlist {
+  font-size: 18px; /* 텍스트 크기 */
+  color: #999; /* 텍스트 색상 (연한 회색) */
+  text-align: center; /* 중앙 정렬 */
+  margin-top: 20px; /* 상단 여백 */
+}
+
+/* 로딩 메시지 스타일 */
+.loading-message {
+  font-size: 20px; /* 텍스트 크기 */
+  color: #999; /* 텍스트 색상 (연한 회색) */
+  text-align: center; /* 중앙 정렬 */
+  margin-top: 20px; /* 상단 여백 */
+}
