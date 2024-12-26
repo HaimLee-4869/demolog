@@ -8,24 +8,35 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
+      # 1) 리포지토리 체크아웃
       - name: Checkout Code
         uses: actions/checkout@v2
 
+      # 2) Node.js 세팅
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
           cache: 'npm'
 
+      # 3) 의존성 설치
       - name: Install Dependencies
         run: yarn install
 
+      # 4) 빌드
+      #    cross-env를 이용해 GitHub Secrets 값을 환경 변수로 주입
       - name: Build Project
-        run: yarn build
+        run: |
+          npx cross-env \
+            REACT_APP_TMDB_API_KEY=${{ secrets.REACT_APP_TMDB_API_KEY }} \
+            REACT_APP_KAKAO_JAVASCRIPT_KEY=${{ secrets.REACT_APP_KAKAO_JAVASCRIPT_KEY }} \
+          yarn build
         env:
           CI: ""
 
+      # 5) 빌드 결과물을 gh-pages로 배포
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
