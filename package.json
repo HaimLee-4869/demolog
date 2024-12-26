@@ -26,17 +26,13 @@
     "redux": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
-  "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "env-cmd": "^10.1.0"
-  },
   "scripts": {
-    "start:dev": "env-cmd -f .env-dev react-scripts start",
-  "build:dev": "env-cmd -f .env-dev react-scripts build",
-  "start:prod": "env-cmd -f .env-prod react-scripts start",
-  "build:prod": "env-cmd -f .env-prod react-scripts build",
-  "build": "npm run build:prod", 
-  "deploy": "gh-pages -d build"
+        "start:dev": "env-cmd -f .env-dev react-scripts start",
+        "build:dev": "env-cmd -f .env-dev react-scripts build",
+        "start:prod": "env-cmd -f .env-prod react-scripts start",
+        "build:prod": "env-cmd -f .env-prod react-scripts build",
+        
+        "build": "npm run build:prod"
   },
   "eslintConfig": {
     "extends": [
@@ -56,5 +52,9 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://haimlee-4869.github.io/haimoive/"
+  "homepage": "https://haimlee-4869.github.io/haimoive/",
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "env-cmd": "^10.1.0"
+  }
 }
