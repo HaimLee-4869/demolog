@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/demolog/static/css/main.09c04d8c.css",
-    "main.js": "/demolog/static/js/main.edddaea7.js",
+    "main.js": "/demolog/static/js/main.ad427377.js",
     "index.html": "/demolog/index.html",
     "main.09c04d8c.css.map": "/demolog/static/css/main.09c04d8c.css.map",
-    "main.edddaea7.js.map": "/demolog/static/js/main.edddaea7.js.map"
+    "main.ad427377.js.map": "/demolog/static/js/main.ad427377.js.map"
   },
   "entrypoints": [
     "static/css/main.09c04d8c.css",
-    "static/js/main.edddaea7.js"
+    "static/js/main.ad427377.js"
   ]
 }
