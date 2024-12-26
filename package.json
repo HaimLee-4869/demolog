@@ -27,10 +27,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start:dev": "env-cmd -f .env-dev react-scripts start",
-    "build:dev": "env-cmd -f .env-dev react-scripts build",
-    "start:prod": "env-cmd -f .env-prod react-scripts start",
-    "build:prod": "env-cmd -f .env-prod react-scripts build"
+        "start:dev": "env-cmd -f .env-dev react-scripts start",
+        "build:dev": "env-cmd -f .env-dev react-scripts build",
+        "start:prod": "env-cmd -f .env-prod react-scripts start",
+        "build:prod": "env-cmd -f .env-prod react-scripts build",
+        
+        "build": "npm run build:prod"
   },
   "eslintConfig": {
     "extends": [
