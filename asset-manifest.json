@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/haimoive/static/css/main.7e685fe2.css",
+    "main.js": "/haimoive/static/js/main.6407ef31.js",
+    "index.html": "/haimoive/index.html",
+    "main.7e685fe2.css.map": "/haimoive/static/css/main.7e685fe2.css.map",
+    "main.6407ef31.js.map": "/haimoive/static/js/main.6407ef31.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7e685fe2.css",
+    "static/js/main.6407ef31.js"
+  ]
+}
