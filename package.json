@@ -55,7 +55,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://haimlee-4869.github.io/haimoive/",
+  "homepage": "https://haimlee-4869.github.io/demolog",
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "env-cmd": "^10.1.0"

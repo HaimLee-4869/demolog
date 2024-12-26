@@ -1,5 +1,5 @@
 # Haimovie 🎥
-https://haimlee-4869.github.io/haimoive/
+https://haimlee-4869.github.io/demolog/
 
 --- 
 
@@ -30,8 +30,8 @@ Haimovie는 TMDB API를 활용하여 인기 영화, 애니메이션, 다큐멘�
 - **Axios**: HTTP 요청
 - **React Router**: 라우팅
 - **React Toastify**: 알림 메시지
-- **Tailwind CSS 및 Custom CSS**: 스타일링
 - **GitHub Actions**: CI/CD를 위한 자동화 배포
+- **Kakao SDK**: 카카오 로그인 및 사용자 정보 조회
 
 ---
 
@@ -45,19 +45,23 @@ npm 또는 yarn
 ### 설치
 1. 프로젝트 클론
    ```bash
-   git clone https://github.com/username/haimoive.git
-   cd haimoive
+   git clone https://github.com/HaimLee-4869/demolog.git
+   cd demolog
 2. 의존성 설치
 ### `npm install`
 3. 환경 변수 설정
     .env 파일을 생성하고 TMDB API 키를 추가합니다.
     REACT_APP_TMDB_API_KEY=your_tmdb_api_key
+    REACT_APP_KAKAO_JAVASCRIPT_KEY=your_kakao_api_key
 4. 실행
-### `npm start`
+### `npm run start:dev`
     애플리케이션은 기본적으로 http://localhost:3000에서 실행됩니다.
 
-### `npm run build`
+### `npm run build:prod`
 
+
+Github pages에 배포
+npm run deploy
 ---
 
 ## 📂 프로젝트 구조
@@ -110,8 +114,28 @@ src
 └── ...
 
 ---
+## 추가사항
+- 카카오로그인
+- 로그인 버튼을 누르면 카카오 API를 통해 사용자 정보를 가져옵니다.
+- 사용자 이름은 로컬 스토리지에 저장되고, 헤더에 표시됩니다.
 
-## 💻 개발 가이드
+
+## 💻 개발 및 배포 유의사항
+1. npm start 대신 npm run start:dev:
+
+개발 환경에서는 반드시 npm run start:dev를 사용하세요.
+npm start는 기본적으로 정의되어 있지 않습니다.
+
+2. GitHub Pages 배포:
+npm run deploy로 GitHub Pages에 최신 빌드를 배포합니다.
+homepage 필드가 올바르게 설정되어 있어야 배포된 사이트가 제대로 작동합니다.
+
+3. 환경 변수 관리:
+.env-dev와 .env-prod를 사용해 개발 및 배포 환경을 분리합니다.
+.gitignore에 .env* 파일을 추가하여 민감한 정보가 노출되지 않도록 합니다.
+
+4. 캐시 문제 해결:
+GitHub Pages에 배포 후에도 변경사항이 반영되지 않을 경우, 브라우저 캐시를 지우거나 강력 새로고침(Ctrl+Shift+R)을 사용하세요.
 
 ### 📋 코딩 컨벤션
 
