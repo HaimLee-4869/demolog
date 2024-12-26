@@ -31,7 +31,11 @@
     "build:dev": "env-cmd -f .env-dev react-scripts build",
     "start:prod": "react-scripts start",
     "build:prod": "react-scripts build",
-    "build": "npm run build:prod"
+    "build": "npm run build:prod",
+
+    "predeploy": "npm run build", 
+    "deploy": "gh-pages -d build" 
+
   },
   "eslintConfig": {
     "extends": [
