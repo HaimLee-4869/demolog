@@ -1,13 +1,16 @@
+// src/views/Search/HomeSearch.js
 import React, { useState } from 'react';
 import MovieSearch from '../../components/Search/Search';
 import InfiniteScroll from '../../components/InfiniteScroll/InfiniteScroll';
 import './HomeSearch.css';
 
 function HomeSearch() {
-  const apiKey = localStorage.getItem('TMDb-Key') || ''; // 로컬 스토리지에서 API 키 가져오기
-  const [genreId, setGenreId] = useState('28'); // 초기 장르 ID는 'Action'으로 설정
-  const [ageId, setAgeId] = useState(-1); // 초기 평점 필터는 전체로 설정
-  const [sortId, setSortId] = useState('all'); // 초기 정렬은 언어 전체로 설정
+  // 변경: localStorage -> .env
+  const apiKey = process.env.REACT_APP_TMDB_API_KEY;
+
+  const [genreId, setGenreId] = useState('28'); // 초기 장르 ID
+  const [ageId, setAgeId] = useState(-1);       // 초기 평점 필터
+  const [sortId, setSortId] = useState('all');  // 초기 정렬
 
   // 장르 선택 코드 매핑
   const genreCode = {
@@ -43,19 +46,19 @@ function HomeSearch() {
    * @param {object} options - 사용자 입력 옵션
    */
   const changeOptions = (options) => {
-    setGenreId(genreCode[options.originalLanguage]); // 장르 ID 업데이트
-    setAgeId(ageCode[options.translationLanguage]); // 평점 필터 업데이트
-    setSortId(sortingCode[options.sorting]); // 정렬 기준 업데이트
+    setGenreId(genreCode[options.originalLanguage]);
+    setAgeId(ageCode[options.translationLanguage]);
+    setSortId(sortingCode[options.sorting]);
   };
 
   return (
     <div className="container-search">
       <div className="container-search-bar">
-        {/* 검색 컴포넌트를 렌더링하고 옵션 변경 함수 전달 */}
+        {/* 검색 컴포넌트 렌더링 */}
         <MovieSearch changeOptions={changeOptions} />
       </div>
       <div className="content-search">
-        {/* 무한 스크롤 컴포넌트를 렌더링하고 필터링된 옵션 전달 */}
+        {/* 무한 스크롤 컴포넌트에 필터링된 옵션 전달 */}
         <InfiniteScroll
           apiKey={apiKey}
           genreCode={genreId}
@@ -67,4 +70,4 @@ function HomeSearch() {
   );
 }
 
-export default HomeSearch; // HomeSearch 컴포넌트를 기본 내보내기
+export default HomeSearch;

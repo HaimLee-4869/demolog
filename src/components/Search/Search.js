@@ -1,9 +1,10 @@
+// src/Search/Search.js
 import React, { useState, useEffect } from 'react';
 import './Search.css';
 
 function Search({ changeOptions }) {
+  // .env에서 TMDB 키를 가져옴
   const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
-
   const BASE_URL = `https://api.themoviedb.org/3/discover/movie`;
 
   const dropdowns = {
@@ -79,11 +80,11 @@ function Search({ changeOptions }) {
     const fetchMovies = async () => {
       setIsLoading(true);
       const genreMap = {
-        'Action': 28,
-        'Adventure': 12,
-        'Comedy': 35,
-        'Crime': 80,
-        'Family': 10751,
+        Action: 28,
+        Adventure: 12,
+        Comedy: 35,
+        Crime: 80,
+        Family: 10751,
       };
 
       const buildApiUrl = () => {
@@ -102,7 +103,7 @@ function Search({ changeOptions }) {
         }
 
         if (selectedOptions.sorting !== '언어 (전체)') {
-          const languageMap = { '영어': 'en', '한국어': 'ko' };
+          const languageMap = { 영어: 'en', 한국어: 'ko' };
           url += `&with_original_language=${languageMap[selectedOptions.sorting]}`;
         }
 
@@ -117,20 +118,20 @@ function Search({ changeOptions }) {
         const apiUrl = buildApiUrl();
         const response = await fetch(apiUrl);
         if (!response.ok) {
-          throw new Error("Failed to fetch movies");
+          throw new Error('Failed to fetch movies');
         }
         const data = await response.json();
         setMovies(data.results);
         setError(null);
       } catch (error) {
         console.error('영화 데이터를 가져오는 데 오류가 발생했습니다.', error);
-        setError("Failed to load movies.");
+        setError('Failed to load movies.');
       } finally {
         setIsLoading(false);
       }
     };
     fetchMovies();
-  }, [selectedOptions, searchQuery]);
+  }, [selectedOptions, searchQuery, API_KEY]);
 
   return (
     <div className="movie-search-container">
@@ -166,7 +167,9 @@ function Search({ changeOptions }) {
           onKeyDown={handleKeyDown}
           className="search-input"
         />
-        <button onClick={handleSearch} className="search-button">검색</button>
+        <button onClick={handleSearch} className="search-button">
+          검색
+        </button>
       </div>
 
       {searchHistory.length > 0 && (
@@ -176,7 +179,9 @@ function Search({ changeOptions }) {
             {searchHistory.map((query, index) => (
               <li key={index}>
                 <span onClick={() => handleSearchHistoryClick(query)}>{query}</span>
-                <button onClick={() => removeHistoryItem(query)} className="remove-btn">X</button>
+                <button onClick={() => removeHistoryItem(query)} className="remove-btn">
+                  X
+                </button>
               </li>
             ))}
           </ul>
@@ -191,7 +196,11 @@ function Search({ changeOptions }) {
         <div className="movie-list">
           {movies.map((movie) => (
             <div key={movie.id} className="movie-card">
-              <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} className="movie-poster" />
+              <img
+                src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                alt={movie.title}
+                className="movie-poster"
+              />
               <div className="movie-info">
                 <h3>{movie.title}</h3>
                 <p>평점: {movie.vote_average}</p>

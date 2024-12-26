@@ -32,7 +32,7 @@ export const registerUser = createAsyncThunk(
 
 // 초기 상태 설정
 const initialState = {
-  isAuthenticated: localStorage.getItem('TMDb-Key') ? true : false,
+  isAuthenticated: false,  // 혹은 Kakao 토큰 검사하거나, DB 사용자 로그인 여부
   user: null,
   loading: false,
   error: null,
@@ -47,7 +47,8 @@ const authSlice = createSlice({
     logout(state) {
       state.isAuthenticated = false;
       state.user = null;
-      localStorage.removeItem('TMDb-Key');
+      // Kakao 연동 시에는 Kakao.Auth.logout() 등을 호출하거나
+      // localStorage.removeItem('kakao_access_token');
     },
   },
   extraReducers: (builder) => {

@@ -5,9 +5,12 @@ class Auth {
         const user = users.find((user) => user.id === email && user.password === password);
   
         if (user) {
-          if (saveToken) {
-            localStorage.setItem('TMDb-Key', user.password);
-          }
+
+          // 굳이 TMDB-Key를 저장할 필요가 없다면 이 부분 제거
+  // if (saveToken) {
+  //   localStorage.setItem('TMDb-Key', user.password);
+  // }
+
           resolve(user);
         } else {
           reject('Login failed');
